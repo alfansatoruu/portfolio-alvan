@@ -607,7 +607,7 @@ footer {
 
     .phone-image.bottom-left {
         width: 250px;
-        bottom: 0px;
+        bottom: -40px;
         left: -20px;
         transform: rotate(30deg);
     }
@@ -629,17 +629,17 @@ footer {
 
     /* Phone image adjustments for mobile */
     .phone-image.top-right {
-        top: -270px;
+        top: -250px;
         transform: rotate(-70deg);
         right: 0px;
         width: 180px;
     }
 
     .phone-image.bottom-left {
-        bottom: 20px;
+        bottom: -75px;
         left: -30px;
-        width: 280px;
-        transform: rotate(20deg);
+        width: 240px;
+        transform: rotate(30deg);
     }
 
     .timeline-item {
@@ -682,7 +682,7 @@ footer {
         /* Margin atas/bawah lebih kecil */
         gap: 10px;
         /* Spasi antar elemen form lebih kecil */
-        transform: translateX(-14%);
+        transform: translateX(-18%);
         /* Reset transform for mobile if not needed */
     }
 
