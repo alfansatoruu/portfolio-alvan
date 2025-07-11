@@ -1,0 +1,665 @@
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    background-color: #F8F3E5;
+    /* Warna krem sangat terang (latar belakang baru) */
+    color: #2A2A2A;
+    /* Teks default menjadi abu-abu gelap mendekati hitam */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: fixed;
+    align-self: center;
+    top: 16px;
+    z-index: 10;
+    display: flex;
+    gap: 30px;
+    padding: 0 36px;
+    border-radius: 24px;
+    background: rgba(212, 188, 123, 0.15);
+    /* #D4BC7B dengan opacity rendah */
+    backdrop-filter: blur(24px) contrast(150%);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2),
+        inset 1px 2px 10px rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(212, 188, 123, 0.5);
+    /* #D4BC7B dengan opacity sedang */
+}
+
+header a {
+    text-decoration: none;
+    font-style: normal;
+    font-size: 14px;
+    color: #2A2A2A;
+    /* Tautan header menjadi abu-abu gelap */
+    padding: 10px 0;
+}
+
+header a:hover {
+    text-shadow: 0 0 10px rgba(212, 188, 123, 0.7);
+    /* Efek bayangan hover dari warna utama baru */
+}
+
+.hero {
+    background: url('assets/json/anjas.svg') center/cover no-repeat;
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+    overflow: visible;
+}
+
+.wave-bottom {
+    margin-bottom: -1px;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 115px;
+    z-index: 1;
+    line-height: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.wave-bottom svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.overlay {
+    background: rgba(212, 188, 123, 0.45);
+    /* #D4BC7B dengan opacity */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1.fade-in-on-load {
+    font-size: 48px;
+    margin: 0;
+    text-shadow:
+        0 0 5px #F8F3E5,
+        0 0 10px #D4BC7B,
+        0 0 20px #D4BC7B,
+        0 0 40px #A08C5D;
+    color: #2A2A2A;
+    opacity: 0;
+    /* Awalnya tersembunyi */
+    animation: fadeIn 1s forwards;
+    /* Animasi fade in saat dimuat */
+}
+
+p.fade-in-on-load {
+    opacity: 0;
+    /* Awalnya tersembunyi */
+    animation: fadeIn 1s forwards;
+    /* Animasi fade in saat dimuat */
+}
+
+.btn.fade-in-on-load {
+    opacity: 0;
+    /* Awalnya tersembunyi */
+    animation: fadeIn 1s forwards;
+    /* Animasi fade in saat dimuat */
+}
+
+.delay-1 {
+    animation-delay: 0.5s;
+}
+
+.delay-2 {
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    padding: 16px 36px;
+    border: 2px solid #D4BC7B;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    background: #E8D8A0;
+    color: #2A2A2A;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn2 {
+    display: inline-flex;
+    padding: 16px 64px;
+    margin-top: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border: 2px solid #F8F3E5;
+    color: #F8F3E5;
+    background-color: #D4BC7B;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover,
+.btn2:hover {
+    background: #A08C5D;
+    color: #F8F3E5;
+}
+
+.rounded {
+    border-radius: 8px;
+}
+
+.text-shadow {
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.content-section,
+footer {
+    padding: 64px 32px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+footer {
+    padding: 0 32px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+}
+
+/* State awal untuk card */
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 12px;
+    border-radius: 12px;
+    /* Mulai tersembunyi dan sedikit bergeser ke bawah */
+    opacity: 0;
+    transform: translateY(40px);
+    /* Transisi halus saat opacity dan transform berubah */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* State akhir saat card terlihat di viewport */
+.card.card-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card p {
+    text-align: center;
+    margin-top: 0;
+}
+
+/* --- New Timeline Styles --- */
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Vertical line for the timeline */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #D4BC7B;
+    /* Match primary color */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    z-index: -1;
+    /* Behind the content */
+}
+
+.timeline-item {
+    padding: 10px 0;
+    position: relative;
+    width: 50%;
+    margin-bottom: 50px;
+    /* Space between items */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    /* Vertically align image and content */
+}
+
+/* Alternating items */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 50px;
+    /* Space for the line and dot */
+    justify-content: flex-end;
+    /* Push content to the right edge of its 50% width */
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 50px;
+    /* Space for the line and dot */
+    justify-content: flex-start;
+    /* Push content to the left edge of its 50% width */
+    text-align: left;
+}
+
+/* Dot on the timeline line */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #A08C5D;
+    /* Darker primary color */
+    border: 4px solid #F8F3E5;
+    /* Background color for border */
+    top: 50%;
+    border-radius: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -8px;
+    /* Position dot on the line */
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -8px;
+    /* Position dot on the line */
+}
+
+.timeline-image {
+    width: 200px;
+    /* Fixed width for images */
+    height: 150px;
+    /* Fixed height for images */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    /* Don't shrink the image container */
+}
+
+.timeline-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.timeline-content {
+    flex-grow: 1;
+    /* Allow content to take remaining space */
+    padding: 0 20px;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #2A2A2A;
+    font-size: 22px;
+}
+
+.timeline-content p {
+    font-size: 16px;
+    color: #707070;
+}
+
+/* --- End New Timeline Styles --- */
+
+/* Animasi umum untuk elemen yang akan muncul saat scroll */
+.scroll-anim-target {
+    opacity: 0;
+    transform: translateY(50px);
+    /* Atau sesuaikan pergeseran awal */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-anim-target.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    max-width: 100%;
+    width: 250px;
+    border-radius: 12px;
+}
+
+.stack-container {
+    perspective: 1000px;
+    position: relative;
+    width: 280px;
+    height: auto;
+}
+
+.stack-container .about-image:nth-child(1) {
+    transform: rotateY(40deg);
+    transform-style: preserve-3d;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .phone-image.top-right {
+        top: -140px;
+        right: -120px;
+        width: 400px;
+    }
+
+    .phone-image.bottom-left {
+        bottom: -80px;
+        left: -60px;
+        width: 320px;
+    }
+}
+
+.phone-image {
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+}
+
+.top-right {
+    top: 0px;
+    right: -10px;
+    width: 500px;
+}
+
+.bottom-left {
+    bottom: -80px;
+    left: -40px;
+    width: 480px;
+    transform: rotate(40deg);
+}
+
+.top-right,
+.bottom-left {
+    position: absolute;
+    z-index: 2;
+}
+
+/* Contact Form Section */
+.contact-form-container {
+    width: 400px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    /* Bayangan lebih halus */
+    padding: 40px;
+    /* Padding lebih besar */
+    /* REMOVED: max-width: 750px; for desktop to allow it to expand with parent */
+    margin: 40px auto;
+    display: flex;
+    /* Menggunakan flexbox untuk layout internal */
+    flex-direction: column;
+    /* Item dalam kolom */
+    gap: 15px;
+    /* Spasi antar elemen form */
+}
+
+.form-group {
+    margin-bottom: 5px;
+    /* Kurangi margin bawah */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #2A2A2A;
+    font-style: normal;
+    /* Pastikan tidak italic */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: calc(100% - 22px);
+    /* Lebih akurat untuk padding 10px + border 1px */
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    /* Border lebih halus */
+    border-radius: 8px;
+    /* Sudut lebih melengkung */
+    font-family: "Fraunces", serif;
+    font-style: normal;
+    font-size: 16px;
+    color: #4A4A4A;
+    /* Warna teks input */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Transisi saat fokus */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #D4BC7B;
+    /* Warna border saat fokus */
+    box-shadow: 0 0 0 3px rgba(212, 188, 123, 0.3);
+    /* Shadow saat fokus */
+    outline: none;
+    /* Hilangkan outline default browser */
+}
+
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    /* Tinggi minimum textarea */
+}
+
+.contact-form-container button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: #D4BC7B;
+    /* Match your primary button color */
+    color: #2A2A2A;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: "Fraunces", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.contact-form-container button[type="submit"]:hover {
+    background-color: #A08C5D;
+    /* Darker shade on hover */
+    color: #F8F3E5;
+    transform: translateY(-2px);
+    /* Efek sedikit terangkat */
+}
+
+.form-message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    font-style: normal;
+    /* Pastikan tidak italic */
+}
+
+.form-message.success {
+    color: #28a745;
+    background-color: #e6ffe6;
+    /* Latar belakang hijau terang */
+    border: 1px solid #28a745;
+}
+
+.form-message.error {
+    color: #dc3545;
+    background-color: #ffe6e6;
+    /* Latar belakang merah terang */
+    border: 1px solid #dc3545;
+}
+
+
+/* Media Queries for Timeline and general layout adjustments */
+
+/* Tablet View (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .timeline-item {
+        width: calc(100% - 35px);
+        margin-left: 15px;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .timeline-container::after {
+        left: 15px;
+        margin-left: 0;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        padding-right: 0;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .timeline-item::after {
+        left: 7px;
+        right: auto;
+    }
+
+    .timeline-image {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 15px;
+    }
+
+    .timeline-content {
+        padding: 0;
+    }
+
+    /* Contact Form for Tablet */
+    .contact-form-container {
+        padding: 30px;
+        /* Sedikit kurang padding untuk tablet */
+        max-width: 600px;
+        /* Batasi lebar untuk tablet */
+    }
+}
+
+
+/* Mobile View (max-width: 767px) */
+@media (max-width: 767px) {
+    .timeline-item {
+        width: calc(100% - 30px);
+        padding-left: 15px;
+        margin-left: 15px;
+        margin-bottom: 25px;
+    }
+
+    .timeline-container::after {
+        left: 15px;
+    }
+
+    .timeline-item::after {
+        left: 7px;
+        width: 14px;
+        height: 14px;
+        border: 3px solid #F8F3E5;
+    }
+
+    .timeline-image {
+        height: 180px;
+    }
+
+    .timeline-content h3 {
+        font-size: 20px;
+    }
+
+    .timeline-content p {
+        font-size: 15px;
+    }
+
+    /* Contact Form for Mobile */
+    .contact-form-container {
+        padding: 20px;
+        /* Padding lebih kecil untuk mobile */
+        max-width: 90%;
+        /* Menggunakan persentase untuk lebar yang lebih fleksibel */
+        margin: 20px auto;
+        /* Margin atas/bawah lebih kecil */
+        gap: 10px;
+        /* Spasi antar elemen form lebih kecil */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea,
+    .contact-form-container button[type="submit"] {
+        font-size: 15px;
+        /* Ukuran font lebih kecil untuk mobile */
+    }
+
+    .contact-form-container button[type="submit"] {
+        padding: 12px;
+        /* Padding tombol lebih kecil */
+    }
+}

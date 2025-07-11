@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"Satoru" alvan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="#about" class="header_button">About</a>
+        <a href="#Skill" class="header_button">Skill</a>
+        <a href="#projects" class="header_button">Project</a>
+        <a href="#download" class="header_button">Download</a>
+    </header>
+
+    <section class="hero">
+        <lottie-player src="assets/json/saya_app.json" background="transparent" class="phone-image top-right"
+            id="lottie-animation" speed="1" loop autoplay>
+        </lottie-player>
+
+        <img class="phone-image bottom-left" src="assets/image/hp3.png" alt="Phone preview bottom">
+
+        <div class="overlay">
+            <h1 class="fade-in-on-load">Mewujudkan Visi <br> Digital Anda</h1>
+            <p class="text-shadow fade-in-on-load delay-1">Inovasi dan desain bertemu dalam setiap proyek.</p>
+            <a href="#contact-form" class="btn rounded fade-in-on-load delay-2">Kirim Pesan</a>
+        </div>
+
+        <div class="wave-bottom">
+            <svg viewBox="0 0 1200 91" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path
+                    d="M0 66L50 62C100 58 200 50 300 34C400 17 500 -7 600 1C700 9 800 50 900 66C1000 83 1100 75 1150 70L1200 66V91H1150C1100 91 1000 91 900 91C800 91 700 91 600 91C500 91 400 91 300 91C200 91 100 91 50 91H0V66Z"
+                    fill="#F8F3E5" />
+            </svg>
+        </div>
+    </section>
+
+    <section id="about" class="content-section scroll-anim-target">
+        <div class="about-container">
+            <div class="stack-container">
+                <img class="about-image" src="assets/image/gw.jpg" alt="App preview">
+            </div>
+            <div class="about-text">
+                <h2>About</h2>
+                <p>Portofolio ini menampilkan beragam proyek yang dirancang untuk menghadirkan pengalaman digital yang
+                    inovatif dan imersif. Setiap kreasi dikembangkan dengan fokus pada desain intuitif, fungsionalitas
+                    optimal, dan solusi yang relevan untuk kebutuhan pengguna modern. Selami dunia di mana teknologi
+                    bertemu kreativitas, menghadirkan interaksi yang bermakna dan memikat.</p>
+                <a href="#projects" class="btn2 rounded">My Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="Skill" class="content-section">
+        <h2>Skills</h2>
+        <div class="cards">
+            <div class="card">
+                <lottie-player src="assets/json/sosmed.json" id="lottie-animation-mobile" speed="0.5" loop autoplay>
+                </lottie-player>
+                <h3>Mobile App Development</h3>
+                <p>Menciptakan aplikasi *mobile* yang intuitif dan berperforma tinggi untuk berbagai *platform*.</p>
+            </div>
+            <div class="card">
+                <lottie-player src="assets/json/web.json" id="lottie-animation-web" speed="0.5" loop autoplay>
+                </lottie-player>
+                <h3>Web Development</h3>
+                <p>Merancang dan mengembangkan situs web yang responsif dan menarik, mulai dari *front-end*
+                    hingga *back-end*.</p>
+            </div>
+            <div class="card">
+                <lottie-player src="assets/json/repositor.json" id="lottie-animation-team" speed="0.5" loop autoplay>
+                </lottie-player>
+                <h3>Team Collaboration</h3>
+                <p>Unggul dalam lingkungan kolaboratif, berkontribusi secara efektif dan membina kerja sama tim
+                    yang produktif.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="content-section scroll-anim-target">
+        <h2>Project Complete</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-image">
+                    <img src="assets/image/face-dect-hero.jpg" alt="Face Detection App">
+                </div>
+                <div class="timeline-content">
+                    <h3>Face Detection App</h3>
+                    <p>A mobile application leveraging AI for real-time face detection and recognition. Developed with a
+                        focus on efficiency and user privacy.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-image">
+                    <img src="assets/image/donuts.webp" alt="Donuts E-commerce Website">
+                </div>
+                <div class="timeline-content">
+                    <h3>Donuts E-commerce Platform</h3>
+                    <p>An intuitive e-commerce website for a donut shop, featuring online ordering, payment integration,
+                        and a responsive design for all devices.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-image">
+                    <img src="assets/image/website.webp" alt="Portfolio Website">
+                </div>
+                <div class="timeline-content">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>This very portfolio website, designed to showcase a range of projects and skills, built with
+                        modern web technologies for an engaging user experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-form" class="content-section scroll-anim-target">
+        <h2>Kirim Pesan</h2>
+        <form id="contactForm" class="contact-form-container">
+            <div class="form-group">
+                <label for="user_name">Nama Anda:</label>
+                <input type="text" id="user_name" name="user_name" required>
+            </div>
+            <div class="form-group">
+                <label for="user_email">Email Anda:</label>
+                <input type="email" id="user_email" name="user_email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan Anda:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn rounded">Kirim Pesan</button>
+            <p id="form-message" class="form-message"></p>
+        </form>
+    </section>
+
+    <!-- Updated Download Section -->
+    <section id="download" class="content-section scroll-anim-target">
+        <h2>Get the App</h2>
+        <p>Available on iOS and Android. Start your historical journey today.</p>
+        <div class="download-buttons">
+            <a href="/" tabIndex="0"><img class="bn45"
+                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                    alt="App Store"></a>
+            <a href="/" tabIndex="0"><img class="bn45"
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                    alt="Google Play"></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Satoru Alvan</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "GemEzDgLWGvJ3nHg7",
+            });
+        })();
+    </script>
+    <script src="email.js"></script>
+</body>
+
+</html>
