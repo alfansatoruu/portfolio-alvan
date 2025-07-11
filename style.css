@@ -24,7 +24,7 @@ header {
     z-index: 10;
     display: flex;
     gap: 30px;
-    padding: 0 36px;
+    padding: 0 25px;
     border-radius: 24px;
     background: rgba(212, 188, 123, 0.15);
     /* #D4BC7B dengan opacity rendah */
