@@ -50,7 +50,9 @@ header a:hover {
 }
 
 .hero {
-    background: url('assets/json/anjas.svg') center/cover no-repeat;
+    /* background: url('assets/json/anjas.svg')  */
+       background: url('assets/image/jaring.png') 
+    center/cover no-repeat;
     height: 100vh;
     position: relative;
     width: 100vw;
