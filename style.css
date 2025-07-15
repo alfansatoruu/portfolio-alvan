@@ -17,6 +17,31 @@ body {
     overflow-x: hidden;
 }
 
+/* Loading Overlay Styles */
+#loading-overlay {
+    position: fixed; /* */
+    top: 0; /* */
+    left: 0; /* */
+    width: 100%; /* */
+    height: 100%; /* */
+    background-color: #F8F3E5; /* Match your body background color */
+    display: flex; /* */
+    justify-content: center; /* */
+    align-items: center; /* */
+    z-index: 9999; /* Ensure it's on top of everything */
+    transition: opacity 0.5s ease-out; /* */
+}
+
+#loading-overlay.hidden {
+    opacity: 0; /* */
+    pointer-events: none; /* Allows clicks to pass through once hidden */
+}
+
+#loading-overlay lottie-player {
+    width: 160px; /* Adjust as needed */
+    height: 160px; /* Adjust as needed */
+}
+
 header {
     position: fixed;
     align-self: center;
@@ -50,9 +75,7 @@ header a:hover {
 }
 
 .hero {
-    /* background: url('assets/json/anjas.svg')  */
-       background: url('assets/image/jaring.png') 
-    center/cover no-repeat;
+    background: url('assets/json/anjas.svg') center/cover no-repeat;
     height: 100vh;
     position: relative;
     width: 100vw;

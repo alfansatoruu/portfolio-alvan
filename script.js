@@ -74,4 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (heroLottie && typeof heroLottie.play === 'function') {
 		heroLottie.play();
 	}
+
+    // Hide loading overlay
+    const loadingOverlay = document.getElementById("loading-overlay");
+    if (loadingOverlay) {
+        loadingOverlay.classList.add("hidden");
+        // Optional: Remove the element from DOM after transition to free up resources
+        loadingOverlay.addEventListener('transitionend', () => {
+            loadingOverlay.remove();
+        });
+    }
 });
