@@ -77,11 +77,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Hide loading overlay
     const loadingOverlay = document.getElementById("loading-overlay");
+    // Add the animationDuration constant as requested
+    const animationDuration = 5000; // 5 seconds
+
     if (loadingOverlay) {
-        loadingOverlay.classList.add("hidden");
-        // Optional: Remove the element from DOM after transition to free up resources
-        loadingOverlay.addEventListener('transitionend', () => {
-            loadingOverlay.remove();
-        });
+        // Delay hiding the overlay by animationDuration
+        setTimeout(() => {
+            loadingOverlay.classList.add("hidden");
+            // Optional: Remove the element from DOM after transition to free up resources
+            loadingOverlay.addEventListener('transitionend', () => {
+                loadingOverlay.remove();
+            });
+        }, animationDuration);
     }
 });
